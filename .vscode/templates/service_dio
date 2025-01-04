@@ -1,0 +1,56 @@
+@@@lib/service/hyper_example/hyper_example_service.dart
+import 'package:dio/dio.dart';
+
+class HyperExampleService {
+  final Dio dio;
+
+  HyperExampleService({
+    required this.dio,
+  });
+
+  Future<Response> getAll() async {
+    try {
+    Response response = await dio.get('https://reqres.in/api/hyper_example');
+      return response;
+    } catch (e) {
+      return Future.error(e.toString());
+    }
+  }
+
+  Future<Response> create(Map<String, dynamic> userData) async {
+    try {
+      Response response = await dio.post('https://reqres.in/api/hyper_example', data: userData);
+      return response;
+    } catch (e) {
+      return Future.error(e.toString());
+    }
+  }
+
+  Future<Response> get(int id) async {
+    try {
+      Response response = await dio.get('https://reqres.in/api/hyper_example/$id');
+      return response;
+    } catch (e) {
+      return Future.error(e.toString());
+    }
+  }
+
+  Future<Response> update(int id, Map<String, dynamic> userData) async {
+    try {
+      Response response = await dio.put('https://reqres.in/api/hyper_example/$id', data: userData);
+      return response;
+    } catch (e) {
+      return Future.error(e.toString());
+    }
+  }
+
+  Future<Response> delete(int id) async {
+    try {
+      Response response = await dio.delete('https://reqres.in/api/hyper_example/$id');
+      return response;
+    } catch (e) {
+      return Future.error(e.toString());
+    }
+  }
+}
+---

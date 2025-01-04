@@ -1,0 +1,35 @@
+@@@lib/service/hyper_example/hyper_example_service.dart
+import 'package:supabase/supabase.dart';
+
+class HyperExampleService {
+  final SupabaseClient client;
+
+  HyperExampleService({
+    required this.client,
+  });
+
+  Future<List<Map<String, dynamic>>> getAll() async {
+    final response = await client.from('hyper_example').select();
+    return response;
+  }
+
+  Future<Map<String, dynamic>> create(Map<String, dynamic> userData) async {
+    final response = await client.from('hyper_example').insert([userData]);
+    return response;
+  }
+
+  Future<Map<String, dynamic>> get(int id) async {
+    final response = await client.from('hyper_example').select().eq('id', id);
+    return response[0];
+  }
+
+  Future<Map<String, dynamic>> update(int id, Map<String, dynamic> userData) async {
+    final response = await client.from('hyper_example').update(userData).eq('id', id);
+    return response[0];
+  }
+
+  Future<void> delete(int id) async {
+    await client.from('hyper_example').delete().eq('id', id);
+  }
+}
+---

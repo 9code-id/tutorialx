@@ -1,0 +1,61 @@
+@@@lib/service/hyper_example/hyper_example_service.dart
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+class HyperExampleService {
+  final FirebaseFirestore firestore;
+
+  HyperExampleService({
+    required this.firestore,
+  });
+
+  Future<List<Map<String, dynamic>>> getAll() async {
+    try {
+      final snapshot = await firestore.collection('hyper_example').get();
+      return snapshot.docs.map((doc) => doc.data()).toList();
+    } catch (e) {
+      return Future.error(e.toString());
+    }
+  }
+
+  Future<Map<String, dynamic>> create(Map<String, dynamic> userData) async {
+    try {
+      final docRef = await firestore.collection('hyper_example').add(userData);
+      final docSnapshot = await docRef.get();
+      return docSnapshot.data()!;
+    } catch (e) {
+      return Future.error(e.toString());
+    }
+  }
+
+  Future<Map<String, dynamic>> get(String id) async {
+    try {
+      final docSnapshot = await firestore.collection('hyper_example').doc(id).get();
+      if (!docSnapshot.exists) {
+        return Future.error('User not found');
+      }
+      return docSnapshot.data()!;
+    } catch (e) {
+      return Future.error(e.toString());
+    }
+  }
+
+  Future<Map<String, dynamic>> update(String id, Map<String, dynamic> userData) async {
+    try {
+      await firestore.collection('hyper_example').doc(id).update(userData);
+      final updatedDoc = await firestore.collection('hyper_example').doc(id).get();
+      return updatedDoc.data()!;
+    } catch (e) {
+      return Future.error(e.toString());
+    }
+  }
+
+  Future<void> delete(String id) async {
+    try {
+      await firestore.collection('hyper_example').doc(id).delete();
+    } catch (e) {
+      return Future.error(e.toString());
+    }
+  }
+}
+
+---

@@ -1,0 +1,65 @@
+@@@lib/service/hyper_example/hyper_example_service.dart
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+
+class HyperExampleService {
+  final http.Client client;
+
+  HyperExampleService({
+    required this.client,
+  });
+
+  Future<http.Response> getAll() async {
+    try {
+      final response = await client.get(Uri.parse('https://reqres.in/api/hyper_example'));
+      return response;
+    } catch (e) {
+      return Future.error(e.toString());
+    }
+  }
+
+  Future<http.Response> create(Map<String, dynamic> userData) async {
+    try {
+      final response = await client.post(
+        Uri.parse('https://reqres.in/api/hyper_example'),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode(userData),
+      );
+      return response;
+    } catch (e) {
+      return Future.error(e.toString());
+    }
+  }
+
+  Future<http.Response> get(int id) async {
+    try {
+      final response = await client.get(Uri.parse('https://reqres.in/api/hyper_example/$id'));
+      return response;
+    } catch (e) {
+      return Future.error(e.toString());
+    }
+  }
+
+  Future<http.Response> update(int id, Map<String, dynamic> userData) async {
+    try {
+      final response = await client.put(
+        Uri.parse('https://reqres.in/api/hyper_example/$id'),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode(userData),
+      );
+      return response;
+    } catch (e) {
+      return Future.error(e.toString());
+    }
+  }
+
+  Future<http.Response> delete(int id) async {
+    try {
+      final response = await client.delete(Uri.parse('https://reqres.in/api/hyper_example/$id'));
+      return response;
+    } catch (e) {
+      return Future.error(e.toString());
+    }
+  }
+}
+---

@@ -1,0 +1,127 @@
+#packages: get
+@@@lib/presentation/hyper_example/view/hyper_example_view.dart
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:hyper_ui/core.dart';
+
+class HyperExampleView extends StatefulWidget {
+  const HyperExampleView({super.key});
+
+  @override
+  State<HyperExampleView> createState() => _HyperExampleViewState();
+}
+
+class _HyperExampleViewState extends State<HyperExampleView> {
+  HyperExampleController controller = Get.put(HyperExampleController());
+  HyperExampleState state = Get.find<HyperExampleController>().state;
+
+  @override
+  Widget build(BuildContext context) {
+    return Obx(
+      () {
+        if (state.loading.value) {
+          return const Scaffold(
+            body: Center(
+              child: CircularProgressIndicator(),
+            ),
+          );
+        }
+
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text("HyperExample"),
+            actions: const [],
+          ),
+          body: SingleChildScrollView(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              children: [
+                Text(
+                  "UniqueID: ${UniqueKey()}",
+                  style: const TextStyle(
+                    fontSize: 18.0,
+                  ),
+                ),
+                const SizedBox(
+                  height: 12.0,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(
+                      onPressed: controller.decrement,
+                      icon: const Icon(Icons.remove, color: Colors.grey),
+                    ),
+                    Obx(
+                      () {
+                        return Text(
+                          "${state.counter.value}",
+                          style: const TextStyle(
+                            fontSize: 20.0,
+                            color: Colors.grey,
+                          ),
+                        );
+                      },
+                    ),
+                    IconButton(
+                      onPressed: controller.increment,
+                      icon: const Icon(Icons.add, color: Colors.grey),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 12.0,
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.black,
+                    foregroundColor: Colors.white,
+                  ),
+                  onPressed: () => controller.initializeData(),
+                  child: const Text("Reload"),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+---
+@@@lib/presentation/hyper_example/state/hyper_example_state.dart
+import 'package:get/get.dart';
+
+class HyperExampleState {
+  var loading = false.obs;
+  var counter = 0.obs;
+}
+
+
+---
+@@@lib/presentation/hyper_example/controller/hyper_example_controller.dart
+import 'package:hyper_ui/core.dart';
+
+class HyperExampleController {
+  late HyperExampleView view;
+  HyperExampleState state = HyperExampleState();
+
+  void initializeData() async {
+    state.loading.value = true;
+    await Future.delayed(const Duration(milliseconds: 2000));
+    state.loading.value = false;
+  }
+
+  void increment() {
+    state.counter.value++;
+  }
+
+  void decrement() {
+    state.counter.value--;
+  }
+}
+
+---
+@@@lib/presentation/hyper_example/widget/_
+---
