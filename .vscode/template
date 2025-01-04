@@ -46,7 +46,7 @@ class _HyperExampleViewState extends State<HyperExampleView> {
         selector: (state) => state.fullViewState,
         builder: (context, _) {
           if (cubit.state.fullViewState == FullViewState.loading) {
-            return const Center(child: CircularProgressIndicator());
+            return Center(child: CircularProgressIndicator());
           }
 
           return Scaffold(

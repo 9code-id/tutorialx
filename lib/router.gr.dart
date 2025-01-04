@@ -6,6 +6,56 @@ import 'package:tutorialx/core.dart';
 
       
 /// generated route for
+/// [CondaView]
+
+class CondaRouteArgs {
+  final Key? key;
+  
+
+  const CondaRouteArgs({
+    this.key,
+    
+  });
+
+  @override
+  String toString() {
+    return 'CondaRouteArgs{key: $key, }';
+  }
+}
+
+class CondaRoute
+    extends PageRouteInfo<CondaRouteArgs> {
+  CondaRoute({
+    Key? key,
+    
+    List<PageRouteInfo>? children,
+  }) : super(
+          CondaRoute.name,
+          args: CondaRouteArgs(
+            key: key,
+             
+          ),
+          rawPathParams: {},
+          initialChildren: children,
+        );
+
+  static const String name = 'CondaRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final pathParams = data.inheritedPathParams;
+      final args = data.argsAs<CondaRouteArgs>(
+          orElse: () => CondaRouteArgs());
+      return CondaView(
+        key: args.key,
+        
+      );
+    },
+  );
+}
+
+/// generated route for
 /// [ContohView]
 
 class ContohRouteArgs {
@@ -48,56 +98,6 @@ class ContohRoute
       final args = data.argsAs<ContohRouteArgs>(
           orElse: () => ContohRouteArgs());
       return ContohView(
-        key: args.key,
-        
-      );
-    },
-  );
-}
-
-/// generated route for
-/// [DemoView]
-
-class DemoRouteArgs {
-  final Key? key;
-  
-
-  const DemoRouteArgs({
-    this.key,
-    
-  });
-
-  @override
-  String toString() {
-    return 'DemoRouteArgs{key: $key, }';
-  }
-}
-
-class DemoRoute
-    extends PageRouteInfo<DemoRouteArgs> {
-  DemoRoute({
-    Key? key,
-    
-    List<PageRouteInfo>? children,
-  }) : super(
-          DemoRoute.name,
-          args: DemoRouteArgs(
-            key: key,
-             
-          ),
-          rawPathParams: {},
-          initialChildren: children,
-        );
-
-  static const String name = 'DemoRoute';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      final pathParams = data.inheritedPathParams;
-      final args = data.argsAs<DemoRouteArgs>(
-          orElse: () => DemoRouteArgs());
-      return DemoView(
         key: args.key,
         
       );

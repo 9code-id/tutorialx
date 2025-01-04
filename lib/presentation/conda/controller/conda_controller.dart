@@ -1,7 +1,7 @@
 import 'package:tutorialx/core.dart';
 
-abstract class DemoController {
-  late DemoState state;
+abstract class CondaController {
+  late CondaState state;
 
   void initState({
     required Function init,

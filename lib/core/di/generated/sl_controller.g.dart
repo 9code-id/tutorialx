@@ -2,11 +2,16 @@
 import 'package:tutorialx/core.dart';
 
 void configureControllerDependencies() async {
-  sl.registerLazySingleton<ContohController>(
-    () => ContohControllerImpl(),
+      
+  sl.registerLazySingleton<CondaController>(
+    () => CondaControllerImpl(
+    
+    ),
   );
 
-  sl.registerLazySingleton<DemoController>(
-    () => DemoControllerImpl(),
+  sl.registerLazySingleton<ContohController>(
+    () => ContohControllerImpl(
+    
+    ),
   );
 }

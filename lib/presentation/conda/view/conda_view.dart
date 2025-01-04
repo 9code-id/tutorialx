@@ -1,22 +1,18 @@
-#router_generator
-#sl_generator: controller
-#packages: get_it
-@@@lib/presentation/hyper_example/view/hyper_example_view.dart
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:hyper_ui/core.dart';
+import 'package:tutorialx/core.dart';
 
 @RoutePage()
-class HyperExampleView extends StatefulWidget {
-  const HyperExampleView({super.key});
+class CondaView extends StatefulWidget {
+  const CondaView({super.key});
 
   @override
-  State<HyperExampleView> createState() => _HyperExampleViewState();
+  State<CondaView> createState() => _CondaViewState();
 }
 
-class _HyperExampleViewState extends State<HyperExampleView> {
-  final controller = sl<HyperExampleController>();
-  HyperExampleState get state => controller.state;
+class _CondaViewState extends State<CondaView> {
+  final controller = sl<CondaController>();
+  CondaState get state => controller.state;
 
   @override
   void initState() {
@@ -67,7 +63,7 @@ class _HyperExampleViewState extends State<HyperExampleView> {
 
         return Scaffold(
           appBar: AppBar(
-            title: const Text("HyperExample"),
+            title: const Text("Conda"),
             actions: const [],
           ),
           body: SingleChildScrollView(
@@ -128,82 +124,3 @@ class _HyperExampleViewState extends State<HyperExampleView> {
   }
 }
 
----
-@@@lib/presentation/hyper_example/state/hyper_example_state.dart
-import 'package:hyper_ui/core.dart';
-import 'package:flutter/material.dart';
-
-class HyperExampleState {
-  ValueNotifier<bool> loading = ValueNotifier<bool>(false);
-  ValueNotifier<bool> error = ValueNotifier<bool>(false);
-  ValueNotifier<String> errorMessage = ValueNotifier<String>("");
-  ValueNotifier<int> counter = ValueNotifier<int>(0);
-}
-
-
----
-@@@lib/presentation/hyper_example/controller/hyper_example_controller.dart
-import 'package:hyper_ui/core.dart';
-
-abstract class HyperExampleController {
-  late HyperExampleState state;
-
-  void initState({
-    required Function init,
-  });
-
-  void onReady() {}
-  void dispose() {}
-  void initializeData();
-  void increment();
-  void decrement();
-}
----
-@@@lib/presentation/hyper_example/controller/hyper_example_controller_impl.dart
-import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
-import 'package:hyper_ui/core.dart';
-
-class HyperExampleControllerImpl implements HyperExampleController {
-  @override
-  late HyperExampleState state;
-
-  @override
-  void initState({
-    required Function init,
-  }) {
-    state = HyperExampleState();
-    init.call();
-  }
-
-  @override
-  void onReady() {
-    //handle onReady
-  }
-
-  @override
-  void dispose() {
-    //handle dispose
-  }
-
-  @override
-  void initializeData() async {
-    state.loading.value = true;
-    await Future.delayed(const Duration(milliseconds: 2000));
-    state.loading.value = false;
-  }
-
-  @override
-  void increment() {
-    state.counter.value++;
-  }
-
-  @override
-  void decrement() {
-    state.counter.value--;
-  }
-}
-
----
-@@@lib/presentation/hyper_example/widget/_
----

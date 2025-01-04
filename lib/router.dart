@@ -31,13 +31,13 @@ class AppRouter extends RootStackRouter {
       /// BEGINING OF ROUTES
       
         AutoRoute(
-          path: "/contoh",
-          page: ContohRoute.page,
+          path: "/conda",
+          page: CondaRoute.page,
         ),
 
         AutoRoute(
-          path: "/demo",
-          page: DemoRoute.page,
+          path: "/contoh",
+          page: ContohRoute.page,
         ),
 
       /// END OF ROUTES
