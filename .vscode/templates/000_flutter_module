@@ -2,7 +2,7 @@
 #sl_generator
 #sl_controller
 #packages: get_it auto_route
-%include: 000_flutter__main
+%include@000_flutter__main:sl<AppRouter>().config()
 @@@lib/presentation/hyper_example/view/hyper_example_view.dart
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
