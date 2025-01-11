@@ -31,8 +31,43 @@ class AppRouter extends RootStackRouter {
       /// BEGINING OF ROUTES
       
       AutoRoute(
+        path: "/asaksfoak",
+        page: AsaksfoakRoute.page,
+      ),
+
+      AutoRoute(
+        path: "/cedaok",
+        page: CedaokRoute.page,
+      ),
+
+      AutoRoute(
         path: "/cendana",
         page: CendanaRoute.page,
+      ),
+
+      AutoRoute(
+        path: "/cicak",
+        page: CicakRoute.page,
+      ),
+
+      AutoRoute(
+        path: "/demo",
+        page: DemoRoute.page,
+      ),
+
+      AutoRoute(
+        path: "/sendok",
+        page: SendokRoute.page,
+      ),
+
+      AutoRoute(
+        path: "/seondasaf",
+        page: SeondasafRoute.page,
+      ),
+
+      AutoRoute(
+        path: "/sodako",
+        page: SodakoRoute.page,
       ),
 
       /// END OF ROUTES

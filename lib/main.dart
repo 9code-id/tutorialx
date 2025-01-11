@@ -19,7 +19,7 @@ class _MyAppState extends State<MyApp> {
     super.initState();
     sl.registerLazySingleton<AppRouter>(
       () => AppRouter(
-        // TODO: please change the initial route
+        // TODO: please change the iniasftial route
         initial: '/login',
       ),
     );
@@ -36,4 +36,3 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-
