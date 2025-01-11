@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:auto_route/auto_route.dart';
 import 'package:tutorialx/core.dart';
 
 @RoutePage()
-class ContohView extends StatefulWidget {
-  const ContohView({super.key});
+class LoginView extends StatefulWidget {
+  const LoginView({super.key});
 
   @override
-  State<ContohView> createState() => _ContohViewState();
+  State<LoginView> createState() => _LoginViewState();
 }
 
-class _ContohViewState extends State<ContohView> {
-  final controller = sl<ContohController>();
-  ContohState get state => controller.state;
+class _LoginViewState extends State<LoginView> {
+  final controller = sl<LoginController>();
+  LoginState get state => controller.state;
 
   @override
   void initState() {
@@ -26,19 +25,7 @@ class _ContohViewState extends State<ContohView> {
   void onReady() {
     //after 1st build() is called
     //an example of how to listen to ValueNotifier
-    controller.state.error.addListener(() {
-      controller.onReady();
-      // handle loading state
-      // you can handle navigation, dialog, snackbar, etc
-      // based on the loading state
-      if (controller.state.error.value) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(controller.state.errorMessage.value),
-          ),
-        );
-      }
-    });
+    LoginListener().handle(context);
   }
 
   @override
@@ -63,7 +50,7 @@ class _ContohViewState extends State<ContohView> {
 
         return Scaffold(
           appBar: AppBar(
-            title: const Text("Contoh"),
+            title: const Text("Login"),
             actions: const [],
           ),
           body: SingleChildScrollView(

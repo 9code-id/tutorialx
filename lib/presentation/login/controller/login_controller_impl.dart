@@ -1,16 +1,14 @@
-import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 import 'package:tutorialx/core.dart';
 
-class ContohControllerImpl implements ContohController {
+class LoginControllerImpl implements LoginController {
   @override
-  late ContohState state;
+  late LoginState state;
 
   @override
   void initState({
     required Function init,
   }) {
-    state = ContohState();
+    state = LoginState();
     init.call();
   }
 

@@ -1,37 +1,36 @@
 // ignore_for_file: unused_local_variable, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:auto_route/auto_route.dart';
 import 'package:tutorialx/core.dart';
 
       
 /// generated route for
-/// [CondaView]
+/// [DemoView]
 
-class CondaRouteArgs {
+class DemoRouteArgs {
   final Key? key;
   
 
-  const CondaRouteArgs({
+  const DemoRouteArgs({
     this.key,
     
   });
 
   @override
   String toString() {
-    return 'CondaRouteArgs{key: $key, }';
+    return 'DemoRouteArgs{key: $key, }';
   }
 }
 
-class CondaRoute
-    extends PageRouteInfo<CondaRouteArgs> {
-  CondaRoute({
+class DemoRoute
+    extends PageRouteInfo<DemoRouteArgs> {
+  DemoRoute({
     Key? key,
     
     List<PageRouteInfo>? children,
   }) : super(
-          CondaRoute.name,
-          args: CondaRouteArgs(
+          DemoRoute.name,
+          args: DemoRouteArgs(
             key: key,
              
           ),
@@ -39,15 +38,15 @@ class CondaRoute
           initialChildren: children,
         );
 
-  static const String name = 'CondaRoute';
+  static const String name = 'DemoRoute';
 
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
       final pathParams = data.inheritedPathParams;
-      final args = data.argsAs<CondaRouteArgs>(
-          orElse: () => CondaRouteArgs());
-      return CondaView(
+      final args = data.argsAs<DemoRouteArgs>(
+          orElse: () => DemoRouteArgs());
+      return DemoView(
         key: args.key,
         
       );
@@ -56,32 +55,32 @@ class CondaRoute
 }
 
 /// generated route for
-/// [ContohView]
+/// [LoginView]
 
-class ContohRouteArgs {
+class LoginRouteArgs {
   final Key? key;
   
 
-  const ContohRouteArgs({
+  const LoginRouteArgs({
     this.key,
     
   });
 
   @override
   String toString() {
-    return 'ContohRouteArgs{key: $key, }';
+    return 'LoginRouteArgs{key: $key, }';
   }
 }
 
-class ContohRoute
-    extends PageRouteInfo<ContohRouteArgs> {
-  ContohRoute({
+class LoginRoute
+    extends PageRouteInfo<LoginRouteArgs> {
+  LoginRoute({
     Key? key,
     
     List<PageRouteInfo>? children,
   }) : super(
-          ContohRoute.name,
-          args: ContohRouteArgs(
+          LoginRoute.name,
+          args: LoginRouteArgs(
             key: key,
              
           ),
@@ -89,15 +88,15 @@ class ContohRoute
           initialChildren: children,
         );
 
-  static const String name = 'ContohRoute';
+  static const String name = 'LoginRoute';
 
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
       final pathParams = data.inheritedPathParams;
-      final args = data.argsAs<ContohRouteArgs>(
-          orElse: () => ContohRouteArgs());
-      return ContohView(
+      final args = data.argsAs<LoginRouteArgs>(
+          orElse: () => LoginRouteArgs());
+      return LoginView(
         key: args.key,
         
       );

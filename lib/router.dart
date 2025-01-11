@@ -30,15 +30,15 @@ class AppRouter extends RootStackRouter {
     var appRoutes = [
       /// BEGINING OF ROUTES
       
-        AutoRoute(
-          path: "/conda",
-          page: CondaRoute.page,
-        ),
+      AutoRoute(
+        path: "/demo",
+        page: DemoRoute.page,
+      ),
 
-        AutoRoute(
-          path: "/contoh",
-          page: ContohRoute.page,
-        ),
+      AutoRoute(
+        path: "/login",
+        page: LoginRoute.page,
+      ),
 
       /// END OF ROUTES
       // RedirectRoute(path: '*', redirectTo: '/'),

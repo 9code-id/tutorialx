@@ -1,12 +1,19 @@
 #provider_generator
-#sl_generator:cubit local_data_source remote_data_source service repository use_case
-#packages: flutter_bloc get_it
+#router_generator
+#sl_generator
+#sl_local_data_source
+#sl_remote_data_source
+#sl_service
+#sl_repository
+#sl_use_case
+#sl_cubit
+#model_detail_generator
+#packages: flutter_bloc get_it auto_route
 @@@lib/presentation/hyper_example/view/hyper_example_view.dart
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get_it/get_it.dart';
 import 'package:hyper_ui/core.dart';
 
+@RoutePage()
 class HyperExampleView extends StatefulWidget {
   const HyperExampleView({
     super.key,
@@ -75,7 +82,7 @@ class _HyperExampleViewState extends State<HyperExampleView> {
                         onPressed: cubit.decrement,
                         icon: const Icon(Icons.remove, color: Colors.grey),
                       ),
-                      BlocSelector<ContohCubit, ContohState, int>(
+                      BlocSelector<HyperExampleCubit, HyperExampleState, int>(
                         selector: (state) => state.counter,
                         builder: (context, _) {
                           return Text(
@@ -141,7 +148,7 @@ class HyperExampleState  {
 // ignore: depend_on_referenced_packages
 import 'package:provider/single_child_widget.dart';
 import 'package:hyper_ui/core.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:flutter/material.dart';
 
 class HyperExampleListener extends SingleChildStatelessWidget {
@@ -164,7 +171,7 @@ class HyperExampleListener extends SingleChildStatelessWidget {
 ---
 
 @@@lib/presentation/hyper_example/cubit/hyper_example_cubit.dart
-import 'package:flutter_bloc/flutter_bloc.dart';
+
 
 import 'package:hyper_ui/core.dart';
 
@@ -190,7 +197,7 @@ abstract class HyperExampleCubit extends Cubit<HyperExampleState> {
 ---
 
 @@@lib/presentation/hyper_example/cubit/hyper_example_cubit_impl.dart
-import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:hyper_ui/core.dart';
 
 class HyperExampleCubitImpl extends Cubit<HyperExampleState> implements HyperExampleCubit {

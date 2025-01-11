@@ -1,18 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:auto_route/auto_route.dart';
 import 'package:tutorialx/core.dart';
 
+/*
+Best practices:
+- Use ValueNotifier to handle state management
+- Use ValueListenableBuilder to listen to ValueNotifier changes
+- Use controller to handle state changes
+- Never change the state directly, always use controller
+
+Use Hotkeys:
+- ctrl+shift+v  => Open View
+- ctrl+shift+c  => Open Controller
+- ctrl+shift+l  => Open Listener
+- ctrl+shift+s  => Open State
+- ctrl+shift+alt+c => Open ControllerImpl/Controller
+
+If you want to changae state from different view,
+You can use ServiceLocator
+example:
+- sl<DemoController>().increment();
+
+*/
+
 @RoutePage()
-class CondaView extends StatefulWidget {
-  const CondaView({super.key});
+class DemoView extends StatefulWidget {
+  const DemoView({super.key});
 
   @override
-  State<CondaView> createState() => _CondaViewState();
+  State<DemoView> createState() => _DemoViewState();
 }
 
-class _CondaViewState extends State<CondaView> {
-  final controller = sl<CondaController>();
-  CondaState get state => controller.state;
+class _DemoViewState extends State<DemoView> {
+  final controller = sl<DemoController>();
+  DemoState get state => controller.state;
 
   @override
   void initState() {
@@ -26,19 +46,8 @@ class _CondaViewState extends State<CondaView> {
   void onReady() {
     //after 1st build() is called
     //an example of how to listen to ValueNotifier
-    controller.state.error.addListener(() {
-      controller.onReady();
-      // handle loading state
-      // you can handle navigation, dialog, snackbar, etc
-      // based on the loading state
-      if (controller.state.error.value) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(controller.state.errorMessage.value),
-          ),
-        );
-      }
-    });
+    controller.onReady();
+    DemoListener().handle(context);
   }
 
   @override
@@ -46,7 +55,6 @@ class _CondaViewState extends State<CondaView> {
     super.dispose();
     controller.dispose();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +71,7 @@ class _CondaViewState extends State<CondaView> {
 
         return Scaffold(
           appBar: AppBar(
-            title: const Text("Conda"),
+            title: const Text("Demo"),
             actions: const [],
           ),
           body: SingleChildScrollView(
@@ -123,4 +131,3 @@ class _CondaViewState extends State<CondaView> {
     );
   }
 }
-

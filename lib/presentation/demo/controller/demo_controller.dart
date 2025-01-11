@@ -1,7 +1,8 @@
+// ignore: unused_import
 import 'package:tutorialx/core.dart';
 
-abstract class CondaController {
-  late CondaState state;
+abstract class DemoController {
+  late DemoState state;
 
   void initState({
     required Function init,

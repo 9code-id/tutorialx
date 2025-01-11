@@ -1,7 +1,8 @@
+// ignore: unused_import
 import 'package:tutorialx/core.dart';
 
-abstract class ContohController {
-  late ContohState state;
+abstract class LoginController {
+  late LoginState state;
 
   void initState({
     required Function init,

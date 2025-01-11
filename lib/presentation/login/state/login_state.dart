@@ -1,7 +1,8 @@
+// ignore: unused_import
 import 'package:tutorialx/core.dart';
 import 'package:flutter/material.dart';
 
-class CondaState {
+class LoginState {
   ValueNotifier<bool> loading = ValueNotifier<bool>(false);
   ValueNotifier<bool> error = ValueNotifier<bool>(false);
   ValueNotifier<String> errorMessage = ValueNotifier<String>("");

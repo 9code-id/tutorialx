@@ -1,16 +1,14 @@
-import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 import 'package:tutorialx/core.dart';
 
-class CondaControllerImpl implements CondaController {
+class DemoControllerImpl implements DemoController {
   @override
-  late CondaState state;
+  late DemoState state;
 
   @override
   void initState({
     required Function init,
   }) {
-    state = CondaState();
+    state = DemoState();
     init.call();
   }
 
