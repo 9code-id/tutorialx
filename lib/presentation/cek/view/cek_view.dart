@@ -1,62 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:tutorialx/core.dart';
-/*
-//@HINT
-
-You can navigate to this pages, please use:
-router.push(DemoView());
-router.replaceAll([DemoView()]);
-
-Best practices:
-- Use ValueNotifier to handle state management
-- Use ValueListenableBuilder to listen to ValueNotifier changes
-- Use controller to handle state changes
-- Never change the state directly, always use controllerChange
-
-Use Hotkeys:
-- ctrl+shift+v  => Open View
-- ctrl+shift+c  => Open Controller
-- ctrl+shift+l  => Open Listener
-- ctrl+shift+s  => Open State
-- ctrl+shift+alt+c => Open ControllerImpl/Controller
-
-If you want to change state from different view,
-You can use ServiceLocator
-example:
-- sl<DemoController>().increment();
-
-[Please use this hotkey to remove this hint:]
-alt+shift+/
-
-//@:HINT
-*/
 
 @RoutePage()
-class DemoView extends StatefulWidget {
-  const DemoView({super.key});
-
+class CekView extends StatefulWidget {
+  const CekView({super.key});
   @override
-  State<DemoView> createState() => _DemoViewState();
+  State<CekView> createState() => _CekViewState();
 }
 
-class _DemoViewState extends State<DemoView> {
-  final controller = sl<DemoController>();
-  DemoState get state => controller.state;
-
+class _CekViewState extends State<CekView> {
+  final controller = sl<CekController>();
+  CekState get state => controller.state;
   @override
   void initState() {
     super.initState();
-    controller.initState(init: () {
-      //after state is initialized
-    });
+    controller.initState(init: () {});
     WidgetsBinding.instance.addPostFrameCallback((_) => onReady());
   }
 
   void onReady() {
-    //after 1st build() is called
-    //an example of how to listen to ValueNotifier
     controller.onReady();
-    DemoListener().handle(context);
+    CekListener().handle(context);
   }
 
   @override
@@ -77,10 +41,9 @@ class _DemoViewState extends State<DemoView> {
             ),
           );
         }
-
         return Scaffold(
           appBar: AppBar(
-            title: const Text("Demo"),
+            title: const Text("Cek"),
             actions: const [],
           ),
           body: SingleChildScrollView(

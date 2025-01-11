@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:tutorialx/core.dart';
+
 /*
 //@HINT
 
 You can navigate to this pages, please use:
-router.push(DemoView());
-router.replaceAll([DemoView()]);
+router.push(SendakoView());
+router.replaceAll([SendakoView()]);
 
 Best practices:
 - Use ValueNotifier to handle state management
@@ -23,25 +24,22 @@ Use Hotkeys:
 If you want to change state from different view,
 You can use ServiceLocator
 example:
-- sl<DemoController>().increment();
-
-[Please use this hotkey to remove this hint:]
-alt+shift+/
+- sl<SendakoController>().increment();
 
 //@:HINT
 */
 
 @RoutePage()
-class DemoView extends StatefulWidget {
-  const DemoView({super.key});
+class SendakoView extends StatefulWidget {
+  const SendakoView({super.key});
 
   @override
-  State<DemoView> createState() => _DemoViewState();
+  State<SendakoView> createState() => _SendakoViewState();
 }
 
-class _DemoViewState extends State<DemoView> {
-  final controller = sl<DemoController>();
-  DemoState get state => controller.state;
+class _SendakoViewState extends State<SendakoView> {
+  final controller = sl<SendakoController>();
+  SendakoState get state => controller.state;
 
   @override
   void initState() {
@@ -56,7 +54,7 @@ class _DemoViewState extends State<DemoView> {
     //after 1st build() is called
     //an example of how to listen to ValueNotifier
     controller.onReady();
-    DemoListener().handle(context);
+    SendakoListener().handle(context);
   }
 
   @override
@@ -80,7 +78,7 @@ class _DemoViewState extends State<DemoView> {
 
         return Scaffold(
           appBar: AppBar(
-            title: const Text("Demo"),
+            title: const Text("Sendako"),
             actions: const [],
           ),
           body: SingleChildScrollView(

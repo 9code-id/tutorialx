@@ -2,8 +2,8 @@
 import 'package:tutorialx/core.dart';
 import 'package:flutter/material.dart';
 
-class DemoListener {
-  final controller = sl<DemoController>();
+class SendakoListener {
+  final controller = sl<SendakoController>();
   void handle(BuildContext context) {
     controller.state.error.addListener(() {
       controller.onReady();

@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tutorialx/core.dart';
+
 /*
-//@HINT
-
-You can navigate to this pages, please use:
-router.push(DemoView());
-router.replaceAll([DemoView()]);
-
 Best practices:
 - Use ValueNotifier to handle state management
 - Use ValueListenableBuilder to listen to ValueNotifier changes
@@ -25,23 +20,21 @@ You can use ServiceLocator
 example:
 - sl<DemoController>().increment();
 
-[Please use this hotkey to remove this hint:]
-alt+shift+/
-
-//@:HINT
+To navigate to this page, use:
+router.push(DemoView());
 */
 
 @RoutePage()
-class DemoView extends StatefulWidget {
-  const DemoView({super.key});
+class CandaView extends StatefulWidget {
+  const CandaView({super.key});
 
   @override
-  State<DemoView> createState() => _DemoViewState();
+  State<CandaView> createState() => _CandaViewState();
 }
 
-class _DemoViewState extends State<DemoView> {
-  final controller = sl<DemoController>();
-  DemoState get state => controller.state;
+class _CandaViewState extends State<CandaView> {
+  final controller = sl<CandaController>();
+  CandaState get state => controller.state;
 
   @override
   void initState() {
@@ -56,7 +49,7 @@ class _DemoViewState extends State<DemoView> {
     //after 1st build() is called
     //an example of how to listen to ValueNotifier
     controller.onReady();
-    DemoListener().handle(context);
+    CandaListener().handle(context);
   }
 
   @override
@@ -80,7 +73,7 @@ class _DemoViewState extends State<DemoView> {
 
         return Scaffold(
           appBar: AppBar(
-            title: const Text("Demo"),
+            title: const Text("Canda"),
             actions: const [],
           ),
           body: SingleChildScrollView(

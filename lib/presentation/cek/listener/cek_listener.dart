@@ -2,8 +2,8 @@
 import 'package:tutorialx/core.dart';
 import 'package:flutter/material.dart';
 
-class DemoListener {
-  final controller = sl<DemoController>();
+class CekListener {
+  final controller = sl<CekController>();
   void handle(BuildContext context) {
     controller.state.error.addListener(() {
       controller.onReady();

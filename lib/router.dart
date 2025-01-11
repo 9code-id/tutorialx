@@ -31,6 +31,16 @@ class AppRouter extends RootStackRouter {
       /// BEGINING OF ROUTES
       
       AutoRoute(
+        path: "/canda",
+        page: CandaRoute.page,
+      ),
+
+      AutoRoute(
+        path: "/cek",
+        page: CekRoute.page,
+      ),
+
+      AutoRoute(
         path: "/demo",
         page: DemoRoute.page,
       ),
@@ -38,6 +48,11 @@ class AppRouter extends RootStackRouter {
       AutoRoute(
         path: "/login",
         page: LoginRoute.page,
+      ),
+
+      AutoRoute(
+        path: "/sendako",
+        page: SendakoRoute.page,
       ),
 
       /// END OF ROUTES
