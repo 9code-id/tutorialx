@@ -1,8 +1,8 @@
 // ignore: unused_import
 import 'package:tutorialx/core.dart';
 
-abstract class OtherController {
-  late OtherState state;
+abstract class CendanaController {
+  late CendanaState state;
 
   void initState({
     required Function init,

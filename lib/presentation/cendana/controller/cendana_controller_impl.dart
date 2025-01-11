@@ -1,14 +1,14 @@
 import 'package:tutorialx/core.dart';
 
-class SendakoControllerImpl implements SendakoController {
+class CendanaControllerImpl implements CendanaController {
   @override
-  late SendakoState state;
+  late CendanaState state;
 
   @override
   void initState({
     required Function init,
   }) {
-    state = SendakoState();
+    state = CendanaState();
     init.call();
   }
 

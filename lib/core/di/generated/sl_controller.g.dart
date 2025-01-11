@@ -3,44 +3,8 @@ import 'package:tutorialx/core.dart';
 
 void configureControllerDependencies() async {
       
-  sl.registerLazySingleton<CandaController>(
-    () => CandaControllerImpl(
-    
-    ),
-  );
-
-  sl.registerLazySingleton<CekController>(
-    () => CekControllerImpl(
-    
-    ),
-  );
-
-  sl.registerLazySingleton<DemoController>(
-    () => DemoControllerImpl(
-    
-    ),
-  );
-
-  sl.registerLazySingleton<LoginController>(
-    () => LoginControllerImpl(
-    
-    ),
-  );
-
-  sl.registerLazySingleton<OtherController>(
-    () => OtherControllerImpl(
-    
-    ),
-  );
-
-  sl.registerLazySingleton<SelfController>(
-    () => SelfControllerImpl(
-    
-    ),
-  );
-
-  sl.registerLazySingleton<SendakoController>(
-    () => SendakoControllerImpl(
+  sl.registerLazySingleton<CendanaController>(
+    () => CendanaControllerImpl(
     
     ),
   );

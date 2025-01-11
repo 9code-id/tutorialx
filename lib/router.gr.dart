@@ -5,32 +5,32 @@ import 'package:tutorialx/core.dart';
 
       
 /// generated route for
-/// [CandaView]
+/// [CendanaView]
 
-class CandaRouteArgs {
+class CendanaRouteArgs {
   final Key? key;
   
 
-  const CandaRouteArgs({
+  const CendanaRouteArgs({
     this.key,
     
   });
 
   @override
   String toString() {
-    return 'CandaRouteArgs{key: $key, }';
+    return 'CendanaRouteArgs{key: $key, }';
   }
 }
 
-class CandaRoute
-    extends PageRouteInfo<CandaRouteArgs> {
-  CandaRoute({
+class CendanaRoute
+    extends PageRouteInfo<CendanaRouteArgs> {
+  CendanaRoute({
     Key? key,
     
     List<PageRouteInfo>? children,
   }) : super(
-          CandaRoute.name,
-          args: CandaRouteArgs(
+          CendanaRoute.name,
+          args: CendanaRouteArgs(
             key: key,
              
           ),
@@ -38,315 +38,15 @@ class CandaRoute
           initialChildren: children,
         );
 
-  static const String name = 'CandaRoute';
+  static const String name = 'CendanaRoute';
 
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
       final pathParams = data.inheritedPathParams;
-      final args = data.argsAs<CandaRouteArgs>(
-          orElse: () => CandaRouteArgs());
-      return CandaView(
-        key: args.key,
-        
-      );
-    },
-  );
-}
-
-/// generated route for
-/// [CekView]
-
-class CekRouteArgs {
-  final Key? key;
-  
-
-  const CekRouteArgs({
-    this.key,
-    
-  });
-
-  @override
-  String toString() {
-    return 'CekRouteArgs{key: $key, }';
-  }
-}
-
-class CekRoute
-    extends PageRouteInfo<CekRouteArgs> {
-  CekRoute({
-    Key? key,
-    
-    List<PageRouteInfo>? children,
-  }) : super(
-          CekRoute.name,
-          args: CekRouteArgs(
-            key: key,
-             
-          ),
-          rawPathParams: {},
-          initialChildren: children,
-        );
-
-  static const String name = 'CekRoute';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      final pathParams = data.inheritedPathParams;
-      final args = data.argsAs<CekRouteArgs>(
-          orElse: () => CekRouteArgs());
-      return CekView(
-        key: args.key,
-        
-      );
-    },
-  );
-}
-
-/// generated route for
-/// [DemoView]
-
-class DemoRouteArgs {
-  final Key? key;
-  
-
-  const DemoRouteArgs({
-    this.key,
-    
-  });
-
-  @override
-  String toString() {
-    return 'DemoRouteArgs{key: $key, }';
-  }
-}
-
-class DemoRoute
-    extends PageRouteInfo<DemoRouteArgs> {
-  DemoRoute({
-    Key? key,
-    
-    List<PageRouteInfo>? children,
-  }) : super(
-          DemoRoute.name,
-          args: DemoRouteArgs(
-            key: key,
-             
-          ),
-          rawPathParams: {},
-          initialChildren: children,
-        );
-
-  static const String name = 'DemoRoute';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      final pathParams = data.inheritedPathParams;
-      final args = data.argsAs<DemoRouteArgs>(
-          orElse: () => DemoRouteArgs());
-      return DemoView(
-        key: args.key,
-        
-      );
-    },
-  );
-}
-
-/// generated route for
-/// [LoginView]
-
-class LoginRouteArgs {
-  final Key? key;
-  
-
-  const LoginRouteArgs({
-    this.key,
-    
-  });
-
-  @override
-  String toString() {
-    return 'LoginRouteArgs{key: $key, }';
-  }
-}
-
-class LoginRoute
-    extends PageRouteInfo<LoginRouteArgs> {
-  LoginRoute({
-    Key? key,
-    
-    List<PageRouteInfo>? children,
-  }) : super(
-          LoginRoute.name,
-          args: LoginRouteArgs(
-            key: key,
-             
-          ),
-          rawPathParams: {},
-          initialChildren: children,
-        );
-
-  static const String name = 'LoginRoute';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      final pathParams = data.inheritedPathParams;
-      final args = data.argsAs<LoginRouteArgs>(
-          orElse: () => LoginRouteArgs());
-      return LoginView(
-        key: args.key,
-        
-      );
-    },
-  );
-}
-
-/// generated route for
-/// [OtherView]
-
-class OtherRouteArgs {
-  final Key? key;
-  
-
-  const OtherRouteArgs({
-    this.key,
-    
-  });
-
-  @override
-  String toString() {
-    return 'OtherRouteArgs{key: $key, }';
-  }
-}
-
-class OtherRoute
-    extends PageRouteInfo<OtherRouteArgs> {
-  OtherRoute({
-    Key? key,
-    
-    List<PageRouteInfo>? children,
-  }) : super(
-          OtherRoute.name,
-          args: OtherRouteArgs(
-            key: key,
-             
-          ),
-          rawPathParams: {},
-          initialChildren: children,
-        );
-
-  static const String name = 'OtherRoute';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      final pathParams = data.inheritedPathParams;
-      final args = data.argsAs<OtherRouteArgs>(
-          orElse: () => OtherRouteArgs());
-      return OtherView(
-        key: args.key,
-        
-      );
-    },
-  );
-}
-
-/// generated route for
-/// [SelfView]
-
-class SelfRouteArgs {
-  final Key? key;
-  
-
-  const SelfRouteArgs({
-    this.key,
-    
-  });
-
-  @override
-  String toString() {
-    return 'SelfRouteArgs{key: $key, }';
-  }
-}
-
-class SelfRoute
-    extends PageRouteInfo<SelfRouteArgs> {
-  SelfRoute({
-    Key? key,
-    
-    List<PageRouteInfo>? children,
-  }) : super(
-          SelfRoute.name,
-          args: SelfRouteArgs(
-            key: key,
-             
-          ),
-          rawPathParams: {},
-          initialChildren: children,
-        );
-
-  static const String name = 'SelfRoute';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      final pathParams = data.inheritedPathParams;
-      final args = data.argsAs<SelfRouteArgs>(
-          orElse: () => SelfRouteArgs());
-      return SelfView(
-        key: args.key,
-        
-      );
-    },
-  );
-}
-
-/// generated route for
-/// [SendakoView]
-
-class SendakoRouteArgs {
-  final Key? key;
-  
-
-  const SendakoRouteArgs({
-    this.key,
-    
-  });
-
-  @override
-  String toString() {
-    return 'SendakoRouteArgs{key: $key, }';
-  }
-}
-
-class SendakoRoute
-    extends PageRouteInfo<SendakoRouteArgs> {
-  SendakoRoute({
-    Key? key,
-    
-    List<PageRouteInfo>? children,
-  }) : super(
-          SendakoRoute.name,
-          args: SendakoRouteArgs(
-            key: key,
-             
-          ),
-          rawPathParams: {},
-          initialChildren: children,
-        );
-
-  static const String name = 'SendakoRoute';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      final pathParams = data.inheritedPathParams;
-      final args = data.argsAs<SendakoRouteArgs>(
-          orElse: () => SendakoRouteArgs());
-      return SendakoView(
+      final args = data.argsAs<CendanaRouteArgs>(
+          orElse: () => CendanaRouteArgs());
+      return CendanaView(
         key: args.key,
         
       );

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:tutorialx/core.dart';
-import 'package:tutorialx/router.gr.dart';
+
 /*
 //@HINT
 
 You can navigate to this pages, please use:
-router.push(DemoView());
-router.replaceAll([DemoView()]); 
+router.push(CendanaRoute());
+router.replaceAll([CendanaRoute()]);
 
 Best practices:
 - Use ValueNotifier to handle state management
@@ -16,15 +16,17 @@ Best practices:
 
 Use Hotkeys:
 - ctrl+shift+v  => Open View
+- ctrl+shift+alt+v => Wrap widget with ValueListenableBuilder
 - ctrl+shift+c  => Open Controller
 - ctrl+shift+l  => Open Listener
 - ctrl+shift+s  => Open State
 - ctrl+shift+alt+c => Open ControllerImpl/Controller
 
+
 If you want to change state from different view,
 You can use ServiceLocator
 example:
-- sl<DemoController>().increment();
+- sl<CendanaController>().increment();
 
 [Please use this hotkey to remove this hint:]
 alt+shift+/
@@ -33,16 +35,16 @@ alt+shift+/
 */
 
 @RoutePage()
-class DemoView extends StatefulWidget {
-  const DemoView({super.key});
+class CendanaView extends StatefulWidget {
+  const CendanaView({super.key});
 
   @override
-  State<DemoView> createState() => _DemoViewState();
+  State<CendanaView> createState() => _CendanaViewState();
 }
 
-class _DemoViewState extends State<DemoView> {
-  final controller = sl<DemoController>();
-  DemoState get state => controller.state;
+class _CendanaViewState extends State<CendanaView> {
+  final controller = sl<CendanaController>();
+  CendanaState get state => controller.state;
 
   @override
   void initState() {
@@ -57,7 +59,7 @@ class _DemoViewState extends State<DemoView> {
     //after 1st build() is called
     //an example of how to listen to ValueNotifier
     controller.onReady();
-    DemoListener().handle(context);
+    CendanaListener().handle(context);
   }
 
   @override
@@ -65,6 +67,7 @@ class _DemoViewState extends State<DemoView> {
     super.dispose();
     controller.dispose();
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +84,7 @@ class _DemoViewState extends State<DemoView> {
 
         return Scaffold(
           appBar: AppBar(
-            title: const Text("Demo"),
+            title: const Text("Cendana"),
             actions: const [],
           ),
           body: SingleChildScrollView(
@@ -133,14 +136,6 @@ class _DemoViewState extends State<DemoView> {
                   onPressed: () => controller.initializeData(),
                   child: const Text("Reload"),
                 ),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
-                    foregroundColor: Colors.white,
-                  ),
-                  onPressed: () => router.push(OtherRoute()),
-                  child: const Text("Reload"),
-                ),
               ],
             ),
           ),
@@ -149,3 +144,4 @@ class _DemoViewState extends State<DemoView> {
     );
   }
 }
+

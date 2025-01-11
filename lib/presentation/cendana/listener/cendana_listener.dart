@@ -2,8 +2,8 @@
 import 'package:tutorialx/core.dart';
 import 'package:flutter/material.dart';
 
-class CekListener {
-  final controller = sl<CekController>();
+class CendanaListener {
+  final controller = sl<CendanaController>();
   void handle(BuildContext context) {
     controller.state.error.addListener(() {
       controller.onReady();

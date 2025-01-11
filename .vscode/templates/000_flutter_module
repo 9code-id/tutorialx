@@ -1,12 +1,18 @@
+#router_generator
+#sl_generator
+#sl_controller
+#packages: get_it auto_route
+%include: 000_flutter__main
+@@@lib/presentation/hyper_example/view/hyper_example_view.dart
 import 'package:flutter/material.dart';
-import 'package:tutorialx/core.dart';
+import 'package:hyper_ui/core.dart';
 
 /*
 //@HINT
 
 You can navigate to this pages, please use:
-router.push(SendakoView());
-router.replaceAll([SendakoView()]);
+router.push(HyperExampleRoute());
+router.replaceAll([HyperExampleRoute()]);
 
 Best practices:
 - Use ValueNotifier to handle state management
@@ -16,30 +22,35 @@ Best practices:
 
 Use Hotkeys:
 - ctrl+shift+v  => Open View
+- ctrl+shift+alt+v => Wrap widget with ValueListenableBuilder
 - ctrl+shift+c  => Open Controller
 - ctrl+shift+l  => Open Listener
 - ctrl+shift+s  => Open State
 - ctrl+shift+alt+c => Open ControllerImpl/Controller
 
+
 If you want to change state from different view,
 You can use ServiceLocator
 example:
-- sl<SendakoController>().increment();
+- sl<HyperExampleController>().increment();
+
+[Please use this hotkey to remove this hint:]
+alt+shift+/
 
 //@:HINT
 */
 
 @RoutePage()
-class SendakoView extends StatefulWidget {
-  const SendakoView({super.key});
+class HyperExampleView extends StatefulWidget {
+  const HyperExampleView({super.key});
 
   @override
-  State<SendakoView> createState() => _SendakoViewState();
+  State<HyperExampleView> createState() => _HyperExampleViewState();
 }
 
-class _SendakoViewState extends State<SendakoView> {
-  final controller = sl<SendakoController>();
-  SendakoState get state => controller.state;
+class _HyperExampleViewState extends State<HyperExampleView> {
+  final controller = sl<HyperExampleController>();
+  HyperExampleState get state => controller.state;
 
   @override
   void initState() {
@@ -54,7 +65,7 @@ class _SendakoViewState extends State<SendakoView> {
     //after 1st build() is called
     //an example of how to listen to ValueNotifier
     controller.onReady();
-    SendakoListener().handle(context);
+    HyperExampleListener().handle(context);
   }
 
   @override
@@ -62,6 +73,7 @@ class _SendakoViewState extends State<SendakoView> {
     super.dispose();
     controller.dispose();
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +90,7 @@ class _SendakoViewState extends State<SendakoView> {
 
         return Scaffold(
           appBar: AppBar(
-            title: const Text("Sendako"),
+            title: const Text("HyperExample"),
             actions: const [],
           ),
           body: SingleChildScrollView(
@@ -138,3 +150,107 @@ class _SendakoViewState extends State<SendakoView> {
     );
   }
 }
+
+---
+@@@lib/presentation/hyper_example/state/hyper_example_state.dart
+// ignore: unused_import
+import 'package:hyper_ui/core.dart';
+import 'package:flutter/material.dart';
+
+class HyperExampleState {
+  ValueNotifier<bool> loading = ValueNotifier<bool>(false);
+  ValueNotifier<bool> error = ValueNotifier<bool>(false);
+  ValueNotifier<String> errorMessage = ValueNotifier<String>("");
+  ValueNotifier<int> counter = ValueNotifier<int>(0);
+}
+
+
+---
+@@@lib/presentation/hyper_example/listener/hyper_example_listener.dart
+// ignore: unused_import
+import 'package:tutorialx/core.dart';
+import 'package:flutter/material.dart';
+
+class HyperExampleListener {
+  final controller = sl<HyperExampleController>();
+  void handle(BuildContext context) {
+    controller.state.error.addListener(() {
+      controller.onReady();
+      // handle loading state
+      // you can handle navigation, dialog, snackbar, etc
+      // based on the loading state
+      if (controller.state.error.value) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(controller.state.errorMessage.value),
+          ),
+        );
+      }
+    });
+  }
+}
+---
+@@@lib/presentation/hyper_example/controller/hyper_example_controller.dart
+// ignore: unused_import
+import 'package:hyper_ui/core.dart';
+
+abstract class HyperExampleController {
+  late HyperExampleState state;
+
+  void initState({
+    required Function init,
+  });
+
+  void onReady() {}
+  void dispose() {}
+  void initializeData();
+  void increment();
+  void decrement();
+}
+---
+@@@lib/presentation/hyper_example/controller/hyper_example_controller_impl.dart
+import 'package:hyper_ui/core.dart';
+
+class HyperExampleControllerImpl implements HyperExampleController {
+  @override
+  late HyperExampleState state;
+
+  @override
+  void initState({
+    required Function init,
+  }) {
+    state = HyperExampleState();
+    init.call();
+  }
+
+  @override
+  void onReady() {
+    //handle onReady
+  }
+
+  @override
+  void dispose() {
+    //handle dispose
+  }
+
+  @override
+  void initializeData() async {
+    state.loading.value = true;
+    await Future.delayed(const Duration(milliseconds: 2000));
+    state.loading.value = false;
+  }
+
+  @override
+  void increment() {
+    state.counter.value++;
+  }
+
+  @override
+  void decrement() {
+    state.counter.value--;
+  }
+}
+
+---
+@@@lib/presentation/hyper_example/widget/_
+---
