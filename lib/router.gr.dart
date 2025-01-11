@@ -205,6 +205,106 @@ class LoginRoute
 }
 
 /// generated route for
+/// [OtherView]
+
+class OtherRouteArgs {
+  final Key? key;
+  
+
+  const OtherRouteArgs({
+    this.key,
+    
+  });
+
+  @override
+  String toString() {
+    return 'OtherRouteArgs{key: $key, }';
+  }
+}
+
+class OtherRoute
+    extends PageRouteInfo<OtherRouteArgs> {
+  OtherRoute({
+    Key? key,
+    
+    List<PageRouteInfo>? children,
+  }) : super(
+          OtherRoute.name,
+          args: OtherRouteArgs(
+            key: key,
+             
+          ),
+          rawPathParams: {},
+          initialChildren: children,
+        );
+
+  static const String name = 'OtherRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final pathParams = data.inheritedPathParams;
+      final args = data.argsAs<OtherRouteArgs>(
+          orElse: () => OtherRouteArgs());
+      return OtherView(
+        key: args.key,
+        
+      );
+    },
+  );
+}
+
+/// generated route for
+/// [SelfView]
+
+class SelfRouteArgs {
+  final Key? key;
+  
+
+  const SelfRouteArgs({
+    this.key,
+    
+  });
+
+  @override
+  String toString() {
+    return 'SelfRouteArgs{key: $key, }';
+  }
+}
+
+class SelfRoute
+    extends PageRouteInfo<SelfRouteArgs> {
+  SelfRoute({
+    Key? key,
+    
+    List<PageRouteInfo>? children,
+  }) : super(
+          SelfRoute.name,
+          args: SelfRouteArgs(
+            key: key,
+             
+          ),
+          rawPathParams: {},
+          initialChildren: children,
+        );
+
+  static const String name = 'SelfRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final pathParams = data.inheritedPathParams;
+      final args = data.argsAs<SelfRouteArgs>(
+          orElse: () => SelfRouteArgs());
+      return SelfView(
+        key: args.key,
+        
+      );
+    },
+  );
+}
+
+/// generated route for
 /// [SendakoView]
 
 class SendakoRouteArgs {

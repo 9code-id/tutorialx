@@ -2,10 +2,11 @@
 We believe, the class name must be unique. 
 If there is a conflicting class name in this file,
 it means you have to rename it to something more unique.
-fileCount: 29
+fileCount: 40
 */
 export 'package:tutorialx/core/di/generated/sl_controller.g.dart';
 export 'package:tutorialx/core/di/service_locator.dart';
+export 'package:tutorialx/core/shortcut/shortcut.dart';
 export 'package:tutorialx/core_package.dart';
 export 'package:tutorialx/presentation/canda/controller/canda_controller.dart';
 export 'package:tutorialx/presentation/canda/controller/canda_controller_impl.dart';
@@ -27,6 +28,16 @@ export 'package:tutorialx/presentation/login/controller/login_controller_impl.da
 export 'package:tutorialx/presentation/login/listener/login_listener.dart';
 export 'package:tutorialx/presentation/login/state/login_state.dart';
 export 'package:tutorialx/presentation/login/view/login_view.dart';
+export 'package:tutorialx/presentation/other/controller/other_controller.dart';
+export 'package:tutorialx/presentation/other/controller/other_controller_impl.dart';
+export 'package:tutorialx/presentation/other/listener/other_listener.dart';
+export 'package:tutorialx/presentation/other/state/other_state.dart';
+export 'package:tutorialx/presentation/other/view/other_view.dart';
+export 'package:tutorialx/presentation/self/controller/self_controller.dart';
+export 'package:tutorialx/presentation/self/controller/self_controller_impl.dart';
+export 'package:tutorialx/presentation/self/listener/self_listener.dart';
+export 'package:tutorialx/presentation/self/state/self_state.dart';
+export 'package:tutorialx/presentation/self/view/self_view.dart';
 export 'package:tutorialx/presentation/sendako/controller/sendako_controller.dart';
 export 'package:tutorialx/presentation/sendako/controller/sendako_controller_impl.dart';
 export 'package:tutorialx/presentation/sendako/listener/sendako_listener.dart';

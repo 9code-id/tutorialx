@@ -51,6 +51,16 @@ class AppRouter extends RootStackRouter {
       ),
 
       AutoRoute(
+        path: "/other",
+        page: OtherRoute.page,
+      ),
+
+      AutoRoute(
+        path: "/self",
+        page: SelfRoute.page,
+      ),
+
+      AutoRoute(
         path: "/sendako",
         page: SendakoRoute.page,
       ),
